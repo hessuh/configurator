@@ -1,4 +1,4 @@
-# Automatic IPSEC tunnel configuration tool for Cisco 5505 device with IOS 9.1+
+# A small python3 script to update a (network) device configuration based on a predefined json-template file
 
-Required packages:
+Required python packages:
   Paramiko
