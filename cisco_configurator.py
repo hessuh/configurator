@@ -78,20 +78,6 @@ class SSHConnection():
             return total_output
 
 
-def arg_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--hostfile', '-f',
-                        default="hosts.json",
-                        type=argparse.FileType('r'),
-                        help='host configuration file')
-    parser.add_argument('--verbose', '-v',
-                        action='store_true',
-                        help='verbose flag')
-
-    args = parser.parse_args()
-    return args
-
-
 class Device:
     def __init__(self, data):
         self.replace = {}
@@ -118,6 +104,21 @@ class Hosts:
         self.hosts = []
         for host in data['hosts']:
             self.hosts.append(Host(data['hosts'][host]))
+
+
+def arg_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--hostfile', '-f',
+                        default="hosts.json",
+                        type=argparse.FileType('r'),
+                        help='host configuration file')
+    parser.add_argument('--verbose', '-v',
+                        action='store_true',
+                        help='verbose flag')
+
+    args = parser.parse_args()
+    return args
+
 
 def main():
     args = arg_parser()
