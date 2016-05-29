@@ -1,0 +1,26 @@
+{
+    "hosts": {
+        "somedevice": {
+            "hostname": "10.10.10.10",
+            "port": 22,
+            "username": "user",
+            "password": "passwd",
+            "device": {
+                "make": "Cisco",
+                "model": "ASA5505",
+                "type": "firewall",
+                "info": "nothing special here",
+                "replace": {
+                  "ENAPASSWD": "enable_password"
+                },
+                "commands": [
+                    "?",
+                    "enable",
+                    "ENAPASSWD",
+                    "sh run",
+                    "configure terminal"
+                ]
+            }
+        }
+    }
+}
