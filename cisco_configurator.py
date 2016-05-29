@@ -92,20 +92,6 @@ def arg_parser():
     return args
 
 
-def print_arguments(args):
-    print("""
-Given arguments:
-    hostname: {host}
-    port: {port}
-    username: {username}
-    password: hidden
-    tunnel destination: {tunnel}
-""".format(host=args.host,
-           port=args.port,
-           username=args.user,
-           tunnel=args.tunnel))
-
-
 class Device:
     def __init__(self, data):
         self.replace = {}
@@ -133,16 +119,15 @@ class Hosts:
         for host in data['hosts']:
             self.hosts.append(Host(data['hosts'][host]))
 
-
 def main():
     args = arg_parser()
     data = json.load(args.hostfile)
     hosts = Hosts(data)
     for host in hosts.hosts:
         print("""
-{host}
-{port}
-{name}
+Host: {host}
+Port: {port}
+Username: {name}
 """.format(name=host.username,
            pwd=host.password,
            host=host.hostname,
